@@ -1,0 +1,7 @@
+policy,mode,coverage_pct,rms_radial_err_m,volume_err_pct,final_pose_err_m,nav_only_err_m
+scripted,perfect,100.0,0.46,0.0,0.0,0.0
+scripted,drift,100.0,10.42,3.92,50.21,50.21
+scripted,slam,100.0,1.91,-0.52,2.25,50.21
+active,perfect,100.0,0.46,0.02,0.0,0.0
+active,drift,100.0,11.7,1.97,50.21,50.21
+active,slam,100.0,2.51,1.72,3.34,50.21

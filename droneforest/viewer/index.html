@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DroneForest SLAM Mission</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0f14; overflow: hidden;
+    font: 12px/1.4 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: #cfe3f5; }
+  canvas { display: block; }
+  #hud { position: fixed; left: 12px; bottom: 10px; padding: 4px 8px; background: rgba(8,12,18,.65);
+    border-radius: 4px; pointer-events: none; }
+  #outcome { position: fixed; right: 14px; top: 12px; padding: 6px 12px; background: rgba(8,12,18,.65);
+    border-radius: 4px; font-size: 13px; pointer-events: none; }
+  #outcome b.success { color: #6dffa8; } #outcome b.collision { color: #ff6b5e; } #outcome b.timeout { color: #ffd166; }
+  #right { position: fixed; right: 12px; top: 54px; width: 280px; z-index: 4; pointer-events: none; }
+  #right > * { display: block; margin-bottom: 6px; border-radius: 4px; }
+  #telem { background: rgba(8,12,18,.7); padding: 6px 8px; font-size: 11px; line-height: 1.55; } #telem b { color: #fff; font-weight: 600; }
+  #right canvas { background: rgba(8,12,18,.7); width: 280px; image-rendering: auto; }
+  #depthc { height: 163px; image-rendering: pixelated !important; }
+  .lbl { font-size: 10px; letter-spacing: .04em; text-transform: uppercase; color: #8fa6bb; margin: 2px 0 -2px 2px; }
+  #toast { position: fixed; left: 50%; top: 64px; transform: translateX(-50%); padding: 8px 16px; background: rgba(8,16,24,.82);
+    border: 1px solid #59f0ff; border-radius: 6px; color: #9ff6ff; font-size: 14px; letter-spacing: .04em; opacity: 0; transition: opacity .4s; pointer-events: none; z-index: 6; }
+  #rec { position: fixed; left: 50%; top: 14px; transform: translateX(-50%); color: #ff4d4d; font-size: 13px; display: none; z-index: 6; pointer-events: none; }
+  #strip { height: 46px; }
+  #msg { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; text-align: center;
+    padding: 24px; font-size: 14px; }
+  .lil-gui.root { --background-color: rgba(10,14,20,.88); --font-family: ui-monospace, Menlo, Consolas, monospace;
+    --font-size: 12px; --title-background-color: #0a0e14; --widget-color: #1d2a3a; --hover-color: #25354a;
+    --focus-color: #2d4160; --number-color: #5aa9ff; --string-color: #8fd3a8; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<div id="outcome"></div>
+<div id="right">
+  <div id="telem"></div>
+  <canvas id="spark" width="280" height="64"></canvas>
+  <div class="lbl">depth camera (hot = close)</div>
+  <canvas id="depthc" width="48" height="28"></canvas>
+  <div class="lbl">mission overview</div>
+  <canvas id="strip" width="280" height="46"></canvas>
+  <div class="lbl">what the drone has mapped</div>
+  <canvas id="mini" width="280" height="194"></canvas>
+</div>
+<div id="toast"></div>
+<div id="rec">● REC</div>
+<div id="hud"></div>
+<div id="msg"></div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

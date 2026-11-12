@@ -1,0 +1,32 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.env
+
+# your captured splat + everything derived from it (never commit)
+*.ply
+droneforest/splat_viewer/data/scene*
+droneforest/splat_viewer/data/myscene*
+
+# splat files in general, except the synthetic demo
+*.splat
+!droneforest/splat_viewer/data/demo.splat
+
+# training artifacts
+*.pt
+*.pth
+*.zip
+*.ckpt
+checkpoints/
+wandb/
+tensorboard/
+logs/
+*.log
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/

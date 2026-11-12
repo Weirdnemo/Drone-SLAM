@@ -1,0 +1,12 @@
+[
+ {
+  "id": "scene",
+  "name": "scene",
+  "file": "data/scene_rollout.json"
+ },
+ {
+  "id": "demo",
+  "name": "demo",
+  "file": "data/demo_rollout.json"
+ }
+]

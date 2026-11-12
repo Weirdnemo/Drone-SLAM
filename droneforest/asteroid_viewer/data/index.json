@@ -1,0 +1,20 @@
+[
+ {
+  "id": "rubble",
+  "name": "Rubble pile (Bennu-like)",
+  "file": "data/rubble.json",
+  "seed": 3
+ },
+ {
+  "id": "peanut",
+  "name": "Contact binary (Itokawa-like)",
+  "file": "data/peanut.json",
+  "seed": 3
+ },
+ {
+  "id": "elongated",
+  "name": "Elongated (Eros-like)",
+  "file": "data/elongated.json",
+  "seed": 3
+ }
+]

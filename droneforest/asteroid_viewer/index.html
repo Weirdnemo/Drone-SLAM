@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asteroid SLAM</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #02030a; overflow: hidden; font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #cfe3f5; }
+  canvas { display: block; }
+  .card { position: fixed; background: rgba(8,12,18,.72); border-radius: 4px; backdrop-filter: blur(3px); }
+  #panel { left: 12px; top: 12px; width: 330px; padding: 8px 10px; pointer-events: none; }
+  #panel b { color: #fff; } #panel .ttl { color: #59e0ff; letter-spacing: .08em; font-size: 11px; }
+  #map { left: 12px; top: 200px; width: 300px; height: 150px; }
+  #plot { right: 12px; bottom: 74px; width: 300px; height: 150px; }
+  #strip { left: 12px; right: 12px; bottom: 12px; height: 54px; cursor: pointer; }
+  #hud { left: 12px; bottom: 74px; padding: 4px 8px; pointer-events: none; color: #8fa6bb; }
+  #labels { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+  .pin { position: absolute; transform: translate(-50%, -100%); font-size: 11px; color: #bff6ff; text-shadow: 0 0 6px #000, 0 0 3px #000; white-space: nowrap; transition: opacity .3s; }
+  .pin::before { content: ''; display: block; width: 1px; height: 14px; background: #59e0ff; margin: 0 auto; }
+  #toasts { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: 6px; align-items: center; pointer-events: none; }
+  .toast { background: rgba(10,30,40,.85); border: 1px solid #59e0ff; color: #dff9ff; padding: 5px 12px; border-radius: 4px; animation: tin .25s ease-out; }
+  @keyframes tin { from { opacity: 0; transform: translateY(-8px); } }
+  #rec { position: fixed; right: 14px; top: 14px; display: none; color: #ff5a6e; font-weight: bold; pointer-events: none; }
+  .lil-gui.root { --background-color: rgba(10,14,20,.88); --widget-color: #1d2a3a; --hover-color: #25354a; --number-color: #5aa9ff; --string-color: #8fd3a8; --font-size: 12px; }
+</style>
+<script type="importmap">{ "imports": { "three": "../viewer/vendor/three.module.js" } }</script>
+</head><body>
+<div id="labels"></div><div id="toasts"></div><div id="rec">● REC</div>
+<div id="panel" class="card"></div><canvas id="map" class="card" width="300" height="150"></canvas>
+<canvas id="plot" class="card" width="300" height="150"></canvas><canvas id="strip" class="card" height="54"></canvas><div id="hud" class="card"></div>
+<script type="module" src="./main.js"></script>
+</body></html>
